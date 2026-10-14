@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Register as Community Moderator</title>
+  <link rel="stylesheet" href="../style/moderators.css">
+</head>
+<body>
+
+  <!-- System Global Header with Role Navigation -->
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot-amber"></span>
+        <span>COMMUNITY SAFETY &amp; ANTI-SCAM ONBOARDING</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">Register Other Portals:</span>
+        <nav class="role-nav-links">
+          <a href="../../buyers/view/register.html" class="role-pill">Buyer</a>
+          <a href="../../sellers/view/register.html" class="role-pill">Seller</a>
+          <a href="register.html" class="role-pill active">Moderator</a>
+          <a href="../../admin/view/register.html" class="role-pill">Admin</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="main-nav">
+      <a href="reported-listings.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <!-- <svg viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg> -->
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">campusXchange</span>
+          <span class="brand-subtitle">Moderator &amp; Safety Portal</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../../index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="../../login.html" class="btn-warn">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <section class="panel-section">
+      <h1 class="panel-title">Enroll Campus Safety Moderator</h1>
+      <p class="metric-sub">Onboard trusted student leaders and campus staff to verify item conditions, detect counterfeit devices, and ensure scam-free transactions.</p>
+      <br>
+
+      <form id="moderatorRegisterForm">
+        <div class="filter-group">
+          <label for="regModName" class="filter-label">Full Name / Moderator Handle</label>
+          <input type="text" id="regModName" class="filter-select" placeholder="e.g. Jordan Lee (Student Proctor)" required>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regModEmail" class="filter-label">University Email Address (.edu)</label>
+          <input type="email" id="regModEmail" class="filter-select" placeholder="e.g. j.lee@campus.edu" required>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regModPassword" class="filter-label">Password</label>
+          <input type="password" id="regModPassword" class="filter-select" placeholder="••••••••••••" required>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regModJurisdiction" class="filter-label">Campus Oversight Division</label>
+          <select id="regModJurisdiction" class="filter-select">
+            <option value="Electronics & Tech Hardware">Electronics &amp; Tech Hardware</option>
+            <option value="Textbooks & Course Materials">Textbooks &amp; Course Materials</option>
+            <option value="Dorm Essentials & Commuting">Dorm Essentials &amp; Commuting</option>
+            <option value="General Campus Marketplace">General Campus Marketplace</option>
+          </select>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regModSecurityCode" class="filter-label">Moderator Authorization Passcode</label>
+          <input type="text" id="regModSecurityCode" class="filter-select" placeholder="Default: MOD-SAFETY-99" value="MOD-SAFETY-99" required>
+        </div>
+        <br>
+
+        <button type="submit" class="btn-warn">
+          Complete Registration &amp; Open Safety Portal
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="../script/moderators.js"></script>
+</body>
+</html>
