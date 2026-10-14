@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Register as Student Seller</title>
+  <link rel="stylesheet" href="../style/sellers.css">
+</head>
+<body>
+
+  <!-- System Global Header with Role Navigation -->
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot-emerald"></span>
+        <span>STUDENT SELLER ONBOARDING</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">Register Other Portals:</span>
+        <nav class="role-nav-links">
+          <a href="../../buyers/view/register.html" class="role-pill">Buyer</a>
+          <a href="register.html" class="role-pill active">Seller</a>
+          <a href="../../moderators/view/register.html" class="role-pill">Moderator</a>
+          <a href="../../admin/view/register.html" class="role-pill">Admin</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="main-nav">
+      <a href="manage-listings.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <!-- <svg viewBox="0 0 24 24">
+            <path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-10-3h4v3h-4V4zm10 16H4V9h16v11z"/>
+          </svg> -->
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">campusXchange</span>
+          <span class="brand-subtitle">Seller Onboarding Portal</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../../index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="../../login.html" class="btn-emerald">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <section class="form-panel">
+      <h1 class="panel-title">Register as a Student Seller</h1>
+      <p class="metric-sub">Start listing textbooks, devices, dorm tech, and equipment to fellow university students across campus.</p>
+      <br>
+
+      <form id="sellerRegisterForm">
+        <div class="form-group">
+          <label for="regSellerName" class="form-label">Full Name / Store Name</label>
+          <input type="text" id="regSellerName" class="form-input" placeholder="e.g. Alex Morgan / CS Textbook Depot" required>
+        </div>
+
+        <div class="form-group">
+          <label for="regSellerEmail" class="form-label">Campus Email Address (.edu)</label>
+          <input type="email" id="regSellerEmail" class="form-input" placeholder="e.g. alex.morgan@campus.edu" required>
+        </div>
+
+        <div class="form-group">
+          <label for="regSellerPassword" class="form-label">Password</label>
+          <input type="password" id="regSellerPassword" class="form-input" placeholder="••••••••••••" required>
+        </div>
+
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="regDormLocation" class="form-label">Primary Campus Pickup Location</label>
+            <input type="text" id="regDormLocation" class="form-input" placeholder="e.g. North Quad Hall / Student Union" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regSellerCategory" class="form-label">Primary Item Category</label>
+            <select id="regSellerCategory" class="form-select">
+              <option value="Electronics & Laptops">Electronics &amp; Laptops</option>
+              <option value="Calculators & Tech">Calculators &amp; Tech</option>
+              <option value="Textbooks & Course Packs">Textbooks &amp; Course Packs</option>
+              <option value="Audio & Gaming">Audio &amp; Gaming</option>
+              <option value="Campus Commuting">Campus Commuting</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-emerald">
+          Complete Registration &amp; Open Seller Portal
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="../script/sellers.js"></script>
+</body>
+</html>
