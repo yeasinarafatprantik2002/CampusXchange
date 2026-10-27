@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Platform Operations &amp; Administration</title>
+  <link rel="stylesheet" href="../style/admin.css">
+</head>
+<body>
+
+  <!-- System Global Header with Role Navigation -->
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot-purple"></span>
+        <span>CAMPUS ADMINISTRATOR CONSOLE: FULL ACCESS</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">Switch Portal:</span>
+        <nav class="role-nav-links">
+          <a href="../../buyers/view/search.html" class="role-pill">Buyer</a>
+          <a href="../../sellers/view/manage-listings.html" class="role-pill">Seller</a>
+          <a href="../../moderators/view/reported-listings.html" class="role-pill">Moderator</a>
+          <a href="user-management.html" class="role-pill active">Admin</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="main-nav">
+      <a href="user-management.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">campusXchange</span>
+          <span class="brand-subtitle">Platform Operations &amp; Administration</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="user-management.html" class="nav-link active">Platform Operations &amp; Users</a>
+        <a href="register.html" class="btn-action-reinstate">Admin Onboarding</a>
+        <a href="../../index.html" class="btn-back-home">← Back to Marketplace Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- Operations Overview Deck (SRS: "admin can see all oparation") -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Gross Exchange Volume</div>
+        <div class="kpi-value highlight-cyan">$48,920</div>
+        <div class="kpi-subtext">+14.2% Monthly Campus Momentum</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">Registered Members</div>
+        <div id="metricTotalUsers" class="kpi-value">0</div>
+        <div class="kpi-subtext">Active: <span id="metricActiveUsers">0</span> | Suspended: <span id="metricSuspendedUsers">0</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">Catalog Inventory</div>
+        <div id="metricTotalListings" class="kpi-value">0</div>
+        <div class="kpi-subtext">Published Student Listings</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">Campus Platform Health</div>
+        <div class="kpi-value">99.9%</div>
+        <div class="kpi-subtext">Zero Security Incidents</div>
+      </div>
+    </section>
+
+    <!-- Platform Settings Modification Section (SRS: "and also modify") -->
+    <section class="panel-section">
+      <div class="panel-header">
+        <h2 class="panel-title">Modify Platform Economics &amp; System State</h2>
+        <span class="user-status-pill status-active">Admin Control</span>
+      </div>
+
+      <div class="kpi-grid">
+        <!-- Global Commission Slider -->
+        <div class="kpi-card">
+          <div class="kpi-title">Marketplace Reserve Fee</div>
+          <div id="commissionDisplayVal" class="kpi-value highlight-cyan">3.5%</div>
+          <br>
+          <input type="range" id="commissionRangeInput" class="search-input" min="1" max="15" step="0.5" value="3.5">
+          <br><br>
+          <button id="saveCommissionBtn" class="btn-action-reinstate">Update Platform Fee</button>
+        </div>
+
+        <!-- Maintenance Mode Toggle -->
+        <div class="kpi-card">
+          <div class="kpi-title">Site Maintenance Lockdown</div>
+          <div id="maintenanceStateText" class="kpi-value">NORMAL OPERATIONS</div>
+          <p class="kpi-subtext">Temporarily lock public orders and listings during database updates.</p>
+          <br>
+          <button id="toggleMaintenanceBtn" class="btn-action-suspend">Toggle Maintenance Mode</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Accounts Management & Sanctions Panel -->
+    <section class="panel-section">
+      <div class="panel-header">
+        <h2 class="panel-title">User Accounts Directory &amp; Governance</h2>
+        <div class="nav-actions">
+          <input type="text" id="searchUserInput" class="search-input" placeholder="Search by name, email, or ID...">
+          <select id="filterUserRole" class="search-input">
+            <option value="all">All Roles</option>
+            <option value="buyer">Buyers</option>
+            <option value="seller">Sellers</option>
+            <option value="moderator">Moderators</option>
+            <option value="admin">Administrators</option>
+          </select>
+          <select id="filterUserStatus" class="search-input">
+            <option value="all">All Statuses</option>
+            <option value="active">Active Only</option>
+            <option value="suspended">Suspended Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="data-table-wrapper">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Full Name &amp; Email</th>
+              <th>System Role</th>
+              <th>Report Violations</th>
+              <th>Registered Date</th>
+              <th>Account Status</th>
+              <th>Modify / Sanction Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTbody">
+            <!-- Populated dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Account Suspension Confirmation Modal -->
+  <div id="suspendModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="closeSuspendModalBtn" class="modal-close-btn">&times;</button>
+      <h2 class="panel-title">Suspend User Account</h2>
+      <p class="kpi-subtext">Apply administrative suspension for policy violations to: <strong id="suspendTargetName">User</strong></p>
+      <br>
+
+      <div class="filter-group">
+        <label for="suspendReasonInput" class="kpi-title">Reason for Account Suspension</label>
+        <input type="text" id="suspendReasonInput" class="search-input" placeholder="e.g. Inappropriate conduct, repeated counterfeit listing reports...">
+      </div>
+      <br>
+      <button id="confirmSuspendBtn" class="btn-action-suspend">Confirm Account Suspension</button>
+    </div>
+  </div>
+
+  <!-- <script src="../script/admin.js"></script> -->
+</body>
+</html>
