@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Register as Student Buyer</title>
+  <link rel="stylesheet" href="../style/buyers.css">
+</head>
+<body>
+
+  <!-- System Global Header with Role Navigation -->
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>STUDENT BUYER ONBOARDING</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">Register Other Roles:</span>
+        <nav class="role-nav-links">
+          <a href="register.html" class="role-pill active">Buyer</a>
+          <a href="../../sellers/view/register.html" class="role-pill">Seller</a>
+          <a href="../../moderators/view/register.html" class="role-pill">Moderator</a>
+          <a href="../../admin/view/register.html" class="role-pill">Admin</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="main-nav">
+      <a href="search.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <!-- <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg> -->
+        </div>
+        <div>
+          <span class="brand-title">campusXchange</span>
+          <div class="brand-subtitle">Student Marketplace &amp; Campus Exchange</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../../index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="../../login.html" class="btn-primary">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <div class="hero-banner">
+      <span class="hero-tag">Student Buyer Enrollment</span>
+      <h1 class="hero-title">CREATE YOUR BUYER ACCOUNT</h1>
+      <p class="hero-desc">
+        Browse affordable student technology, message campus sellers directly, and track all your purchases in one unified portal.
+      </p>
+    </div>
+
+    <!-- Registration Card -->
+    <div class="panel-section">
+      <h2 class="panel-title">Buyer Account Registration</h2>
+      <p class="kpi-subtext">Fill in your student details to register your buyer account.</p>
+      <br>
+
+      <form id="buyerRegisterForm">
+        <div class="filter-group">
+          <label for="regBuyerName" class="filter-label">Full Name</label>
+          <input type="text" id="regBuyerName" class="input-control" placeholder="e.g. Emma Watson" required>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regBuyerEmail" class="filter-label">Campus Email Address</label>
+          <input type="email" id="regBuyerEmail" class="input-control" placeholder="e.g. emma.watson@campus.edu" required>
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="regBuyerPassword" class="filter-label">Account Password</label>
+          <input type="password" id="regBuyerPassword" class="input-control" placeholder="••••••••••••" required>
+        </div>
+        <br>
+
+        <div class="card-actions-row">
+          <div class="filter-group">
+            <label for="regBuyerCampusId" class="filter-label">Student ID Number</label>
+            <input type="text" id="regBuyerCampusId" class="input-control" placeholder="e.g. STU-2026-441" required>
+          </div>
+
+          <div class="filter-group">
+            <label for="regBuyerQuadrant" class="filter-label">Campus Dorm / Pickup Location</label>
+            <select id="regBuyerQuadrant" class="select-control">
+              <option value="Main Campus Center">Main Campus Center</option>
+              <option value="North Residence Hall">North Residence Hall</option>
+              <option value="Science & Engineering Library">Science &amp; Engineering Library</option>
+              <option value="Off-Campus Student Housing">Off-Campus Student Housing</option>
+            </select>
+          </div>
+        </div>
+        <br>
+
+        <button type="submit" class="btn-primary">
+          Complete Registration &amp; Enter Buyer Portal
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <script src="../script/buyers.js"></script>
+</body>
+</html>
