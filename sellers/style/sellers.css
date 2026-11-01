@@ -1,7 +1,7 @@
-/* ==========================================================================
+/* ===
    CAMPUSXCHANGE - SELLERS MODULE STYLESHEET
    Clean, normal, accessible UI - No fancy sci-fi or neon effects
-   ========================================================================== */
+   ===*/
 
 :root {
   --bg-page: #f8fafc;
@@ -396,11 +396,6 @@ body {
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  .photo-slots-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 .photo-slot {
   background: #f8fafc;
@@ -463,12 +458,6 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 16px;
-}
-
-@media (max-width: 640px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .form-group, .filter-group {
