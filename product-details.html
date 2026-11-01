@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>campusXchange | Product Details</title>
+		<link rel="stylesheet" href="portal.css" />
+	</head>
+	<body>
+		<!-- System Global Header -->
+		<header class="system-header">
+			<div class="main-nav">
+				<a href="index.html" class="brand-wrapper">
+					<div class="brand-logo-icon">
+						<svg viewBox="0 0 24 24">
+							<path
+								d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+						</svg>
+					</div>
+					<div>
+						<span class="brand-title">campusXchange</span>
+						<div class="brand-subtitle">
+							Student Marketplace &amp; Campus Exchange
+						</div>
+					</div>
+				</a>
+
+				<div class="nav-right-actions">
+					<a href="index.html" class="btn-back-home"
+						>← Back to Marketplace Home</a
+					>
+					<a href="cart.html" class="nav-cart-btn" id="cartNavBtn"
+						>🛒 Cart (<span id="cartCountBadge" class="cart-badge"
+							>0</span
+						>)</a
+					>
+					<a href="login.html" class="btn-outline">Universal Login</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="page-container">
+			<!-- Breadcrumbs Navigation -->
+			<nav class="breadcrumb-bar">
+				<a href="index.html">Marketplace</a>
+				<span>&rsaquo;</span>
+				<a href="index.html">Campus Listings</a>
+				<span>&rsaquo;</span>
+				<span id="crumbItemTitle">Loading Product...</span>
+			</nav>
+
+			<!-- Dynamic Product Details Content -->
+			<div id="productDetailContent">
+				<section class="product-detail-layout">
+					<!-- Left: Image Gallery -->
+					<div class="detail-gallery">
+						<div class="detail-main-photo">
+							<span id="detailMainPhotoIcon" class="photo-icon"
+								>📦</span
+							>
+							<span
+								id="detailPhotoBadge"
+								class="detail-photo-badge"
+								>📷 1 of 5 Photos</span
+							>
+						</div>
+
+						<div
+							id="detailThumbnails"
+							class="detail-thumbnails-row">
+							<!-- Populated dynamically by product-details.js -->
+						</div>
+					</div>
+
+					<!-- Right: Item Info & Action Deck -->
+					<div class="detail-info-pane">
+						<div class="detail-header-row">
+							<span
+								id="detailCondition"
+								class="condition-badge condition-tested"
+								>Condition Tested</span
+							>
+							<span id="detailCategory" class="filter-label"
+								>Electronics</span
+							>
+						</div>
+
+						<h1 id="detailTitle" class="detail-title">
+							Product Title
+						</h1>
+
+						<div class="detail-price-box">
+							<span id="detailPrice" class="detail-price-val"
+								>$0</span
+							>
+							<span class="detail-price-label"
+								>Verified Student Peer Price</span
+							>
+						</div>
+
+						<p id="detailDesc" class="detail-desc-block">
+							Item description and condition details will appear
+							here.
+						</p>
+
+						<!-- Verified Seller Card -->
+						<div class="seller-profile-card">
+							<div class="seller-avatar-name">
+								<div class="seller-avatar-icon">🎓</div>
+								<div>
+									<strong id="detailSellerName"
+										>Student Seller</strong
+									>
+									<div
+										id="detailSellerRating"
+										class="seller-rating">
+										★ 5.0 Campus Rating
+									</div>
+								</div>
+							</div>
+							<div>
+								<span class="filter-label">Campus Pickup:</span>
+								<div
+									id="detailPickupLocation"
+									class="metric-sub">
+									North Quad Hall
+								</div>
+							</div>
+						</div>
+
+						<!-- Actions Deck -->
+						<div class="detail-actions-deck">
+							<button
+								id="detailAddToCartBtn"
+								class="btn-detail-cart">
+								🛒 Add to Cart
+							</button>
+							<button id="detailBuyNowBtn" class="btn-detail-buy">
+								⚡ Buy Now &amp; Checkout
+							</button>
+							<a
+								id="detailMessageBtn"
+								href="buyers/view/messages.html"
+								class="btn-msg">
+								💬 Message Seller
+							</a>
+						</div>
+					</div>
+				</section>
+
+				<!-- Specifications & Verification Panel -->
+				<section class="specs-panel">
+					<h2 class="section-title">
+						Item Specifications &amp; Campus Verification
+					</h2>
+					<table class="specs-table">
+						<tbody>
+							<tr>
+								<th>Listing Reference ID</th>
+								<td id="specItemId">LIST-000</td>
+							</tr>
+							<tr>
+								<th>Department / Category</th>
+								<td id="specCategory">Category</td>
+							</tr>
+							<tr>
+								<th>Condition State</th>
+								<td id="specCondition">Condition</td>
+							</tr>
+							<tr>
+								<th>Designated Meetup Zone</th>
+								<td id="specLocation">Campus Location</td>
+							</tr>
+							<tr>
+								<th>Availability Status</th>
+								<td id="specStatus">Available</td>
+							</tr>
+							<tr>
+								<th>Safety Inspection Shield</th>
+								<td>
+									Verified Clean (Scam-Free Guaranteed by
+									Campus Moderation)
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</div>
+
+			<!-- Product Not Found State (hidden by default) -->
+			<div id="productNotFound" class="empty-state-card hidden">
+				<div class="photo-icon">🔍</div>
+				<br />
+				<h2 class="section-title">Listing Not Found or Removed</h2>
+				<p class="section-desc">
+					The requested campus listing does not exist, has expired, or
+					was already purchased by another student.
+				</p>
+				<br />
+				<a href="index.html" class="btn-cyan"
+					>Browse All Campus Listings</a
+				>
+			</div>
+		</main>
+
+		<script src="product-details.js"></script>
+	</body>
+</html>
