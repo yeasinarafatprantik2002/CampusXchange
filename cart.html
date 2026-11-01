@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Student Cart &amp; Checkout</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+  <!-- System Global Header -->
+  <header class="system-header">
+    <div class="main-nav">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">campusXchange</span>
+          <div class="brand-subtitle">Student Marketplace &amp; Campus Exchange</div>
+        </div>
+      </a>
+
+      <div class="nav-right-actions">
+        <a href="index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="cart.html" class="nav-cart-btn" id="cartNavBtn">🛒 Cart (<span id="cartCountBadge" class="cart-badge">0</span>)</a>
+        <a href="login.html" class="btn-outline">Universal Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <div class="hero-showcase">
+      <span class="hero-tag">Campus Checkout Gateway</span>
+      <h1 class="hero-title">SHOPPING CART &amp; SECURE CHECKOUT</h1>
+      <p class="hero-desc">
+        Review your selected peer listings, confirm on-campus meetup pickup spots, and finalize student orders.
+      </p>
+    </div>
+
+    <!-- Empty Cart Section (shown when cart is empty) -->
+    <section id="cartEmptySection" class="empty-state-card hidden">
+      <div class="photo-icon">🛒</div>
+      <br>
+      <h2 class="section-title">Your Campus Cart is Empty</h2>
+      <p class="section-desc">You haven't added any tech hardware, textbooks, or campus gear to your cart yet.</p>
+      <br>
+      <a href="index.html" class="btn-cyan">Browse Campus Listings →</a>
+    </section>
+
+    <!-- Cart Items & Checkout Layout (shown when items exist) -->
+    <div id="cartContentSection" class="cart-checkout-layout">
+      
+      <!-- Left: Cart Table Items -->
+      <section class="cart-items-panel">
+        <div class="panel-header">
+          <h2 class="section-title">Items in Your Cart</h2>
+          <button id="clearCartBtn" class="btn-outline">Clear Cart</button>
+        </div>
+
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Product &amp; Details</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cartTableBody">
+            <!-- Populated dynamically by cart.js -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Right: Summary & Checkout Form -->
+      <section class="order-summary-panel">
+        <h2 class="section-title">Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotalVal">$0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Campus Protection Fee (3.5%)</span>
+          <span id="cartReserveFeeVal">$0</span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total Amount</span>
+          <span id="cartTotalVal">$0</span>
+        </div>
+
+        <!-- Checkout Form -->
+        <form id="checkoutForm" class="checkout-box">
+          <h3 class="role-card-title">Campus Handover Details</h3>
+
+          <div class="form-group">
+            <label for="checkoutName" class="filter-label">Buyer Full Name</label>
+            <input type="text" id="checkoutName" class="input-control" placeholder="e.g. Emma Watson" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutStudentId" class="filter-label">Student ID Number</label>
+            <input type="text" id="checkoutStudentId" class="input-control" placeholder="e.g. STU-88214" value="STU-88214" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutEmail" class="filter-label">Campus Email (.edu)</label>
+            <input type="email" id="checkoutEmail" class="input-control" placeholder="e.g. emma.watson@campus.edu" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutLocation" class="filter-label">Preferred Campus Meetup Spot</label>
+            <select id="checkoutLocation" class="select-control">
+              <option value="Student Union Lobby">Student Union Lobby (Main Floor)</option>
+              <option value="Main University Library">Main University Library (Atrium)</option>
+              <option value="Engineering & Technology Hall">Engineering &amp; Technology Hall</option>
+              <option value="North Quad Residential Center">North Quad Residential Center</option>
+              <option value="Campus Dining Hub">Campus Dining Hub Entrance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutPaymentMethod" class="filter-label">Payment &amp; Handover Method</label>
+            <select id="checkoutPaymentMethod" class="select-control">
+              <option value="Cash on In-Person Handover">Cash on In-Person Handover (Recommended)</option>
+              <option value="Campus Escrow Protection">Campus Escrow Protection</option>
+              <option value="Student Account / Campus Pay">Student Account / Campus Pay</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutNotes" class="filter-label">Order Notes / Availability (Optional)</label>
+            <input type="text" id="checkoutNotes" class="input-control" placeholder="e.g. Free between 2 PM and 4 PM today">
+          </div>
+
+          <button type="submit" class="btn-confirm-checkout">
+            ✓ Complete Order &amp; Reserve Items
+          </button>
+        </form>
+
+      </section>
+
+    </div>
+
+    <!-- Order Confirmation Receipt Card (shown after successful checkout) -->
+    <section id="orderReceiptSection" class="order-receipt-card hidden">
+      <div class="receipt-success-icon">✓</div>
+      <h2 class="hero-title">CAMPUS ORDER CONFIRMED!</h2>
+      <p class="section-desc">
+        Your peer transaction has been approved. Items are reserved and removed from the active marketplace catalog.
+      </p>
+
+      <div class="specs-panel">
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <th>Order Reference ID</th>
+              <td><strong id="receiptOrderId" class="highlight-cyan">ORD-00000</strong></td>
+            </tr>
+            <tr>
+              <th>Total Amount Due</th>
+              <td><strong id="receiptOrderAmount">$0</strong></td>
+            </tr>
+            <tr>
+              <th>Campus Meetup Location</th>
+              <td id="receiptOrderLocation">Student Union Lobby</td>
+            </tr>
+            <tr>
+              <th>Settlement Method</th>
+              <td id="receiptPaymentMethod">Cash on In-Person Handover</td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td><span class="user-status-pill status-active">Reserved for Campus Pickup</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="receipt-actions">
+        <a href="buyers/view/purchases.html" class="btn-cyan">View My Purchases Ledger →</a>
+        <a href="index.html" class="btn-outline">Continue Shopping</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="cart.js"></script>
+</body>
+</html>
