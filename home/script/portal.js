@@ -361,7 +361,7 @@ function initHomeMarketplace() {
       // Make whole card clickable to open dynamic product details
       card.addEventListener("click", (e) => {
         if (e.target.closest("button") || e.target.closest("a")) return;
-        window.location.href = `product-details.html?id=${item.id}`;
+        window.location.href = `home/view/product-details.html?id=${item.id}`;
       });
 
       grid.appendChild(card);
