@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Role Registration Hub</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+  <!-- System Global Header -->
+  <header class="system-header">
+    <div class="main-nav">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">campusXchange</span>
+          <div class="brand-subtitle">Student Marketplace &amp; Campus Exchange</div>
+        </div>
+      </a>
+
+      <div class="nav-right-actions">
+        <a href="cart.html" class="nav-cart-btn">🛒 Cart (<span class="cart-badge">0</span>)</a>
+        <a href="index.html" class="btn-outline">← Back to Marketplace Home</a>
+        <a href="login.html" class="btn-cyan">Universal Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <div class="hero-showcase">
+      <span class="hero-tag">Role-Based Registration</span>
+      <h1 class="hero-title">SELECT YOUR CAMPUS ROLE TO REGISTER</h1>
+      <p class="hero-desc">
+        Each role has dedicated capabilities and onboarding forms. Choose your operational category below:
+      </p>
+    </div>
+
+    <section class="roles-grid">
+      <!-- 1. Buyer Registration Card -->
+      <article class="role-portal-card">
+        <div class="role-icon">🛒</div>
+        <h2 class="role-card-title">1. Student Buyer Account</h2>
+        <p class="role-card-desc">
+          Browse verified laptops and gear, conduct private in-app inquiries with student sellers, and track all purchased items in your portfolio.
+        </p>
+        <a href="buyers/view/register.html" class="btn-cyan">
+          Register as Buyer →
+        </a>
+      </article>
+
+      <!-- 2. Seller Registration Card -->
+      <article class="role-portal-card">
+        <div class="role-icon">📦</div>
+        <h2 class="role-card-title">2. Student Seller Account</h2>
+        <p class="role-card-desc">
+          List course tech and gear with 5 photo upload slots, manage live stock, remove items, and track completed sales and turnover revenue.
+        </p>
+        <a href="sellers/view/register.html" class="btn-outline">
+          Register as Seller →
+        </a>
+      </article>
+
+      <!-- 3. Moderator Registration Card -->
+      <article class="role-portal-card">
+        <div class="role-icon">🛡️</div>
+        <h2 class="role-card-title">3. Safety Moderator Account</h2>
+        <p class="role-card-desc">
+          Inspect device specifications, verify genuine products, detect fraudulent listings and scams, and enforce content removal and seller sanctions.
+        </p>
+        <a href="moderators/view/register.html" class="btn-outline">
+          Register as Moderator →
+        </a>
+      </article>
+
+      <!-- 4. Admin Registration Card -->
+      <article class="role-portal-card">
+        <div class="role-icon">⚡</div>
+        <h2 class="role-card-title">4. Platform Administrator</h2>
+        <p class="role-card-desc">
+          Executive administration. Monitor all platform operations, adjust marketplace fee rates, enforce suspensions, and oversee campus security.
+        </p>
+        <a href="admin/view/register.html" class="btn-portal-jump">
+          Register as Admin →
+        </a>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="portal.js"></script>
+</body>
+</html>
