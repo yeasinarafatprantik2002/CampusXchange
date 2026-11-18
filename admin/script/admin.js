@@ -163,6 +163,15 @@ function initOperationsGovernanceView() {
   if (saveCommissionBtn && commissionInput) {
     saveCommissionBtn.addEventListener("click", () => {
       const val = commissionInput.value;
+      const number = Number(val);
+      commissionInput.style.border = "";
+      commissionInput.style.backgroundColor = "";
+      if (number < 1 || number > 15) {
+        commissionInput.style.border = "2px solid red";
+        commissionInput.style.backgroundColor = "#fff0f0";
+        alert("Commission fee must be between 1% and 15%.");
+        return;
+      }
       localStorage.setItem("ag_commission", val);
       showToast(`Campus marketplace fee rate updated to ${val}%`, "success");
     });
@@ -331,6 +340,19 @@ function initUserManagementView() {
   if (confirmSuspendBtn) {
     confirmSuspendBtn.addEventListener("click", () => {
       if (!currentPendingSuspendId) return;
+      const reason = suspendReasonInput ? suspendReasonInput.value.trim() : "";
+      if (reason.length < 3) {
+        if (suspendReasonInput) {
+          suspendReasonInput.style.border = "2px solid red";
+          suspendReasonInput.style.backgroundColor = "#fff0f0";
+        }
+        alert("Enter a suspension reason of at least 3 characters.");
+        return;
+      }
+      if (suspendReasonInput) {
+        suspendReasonInput.style.border = "";
+        suspendReasonInput.style.backgroundColor = "";
+      }
       const users = getUsers();
       const target = users.find(u => u.id === currentPendingSuspendId);
       if (target) {
@@ -346,6 +368,13 @@ function initUserManagementView() {
     });
   }
 
+  if (suspendReasonInput) {
+    suspendReasonInput.addEventListener("input", () => {
+      suspendReasonInput.style.border = "";
+      suspendReasonInput.style.backgroundColor = "";
+    });
+  }
+
   if (searchInput) searchInput.addEventListener("input", renderUsers);
   if (roleFilter) roleFilter.addEventListener("change", renderUsers);
   if (statusFilter) statusFilter.addEventListener("change", renderUsers);
@@ -357,15 +386,51 @@ function initUserManagementView() {
 function initAdminRegistration() {
   const form = document.getElementById("adminRegisterForm");
   if (!form) return;
+  const nameInput = document.getElementById("regAdminName");
+  const emailInput = document.getElementById("regAdminEmail");
+  const passwordInput = document.getElementById("regAdminPassword");
+  const passkeyInput = document.getElementById("regAdminPasskey");
+
+  [nameInput, emailInput, passwordInput, passkeyInput].forEach(input => {
+    if (input) {
+      input.addEventListener("input", () => {
+        input.style.border = "";
+        input.style.backgroundColor = "";
+      });
+    }
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = document.getElementById("regAdminName").value.trim();
-    const email = document.getElementById("regAdminEmail").value.trim();
-    const passkey = document.getElementById("regAdminPasskey").value.trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const passkey = passkeyInput.value.trim();
+    let valid = true;
 
-    if (passkey !== "CAMPUS-ROOT-2026" && passkey.length < 6) {
-      showToast("Security Key invalid. Minimum 6 characters required.", "info");
+    [nameInput, emailInput, passwordInput, passkeyInput].forEach(input => {
+      input.style.border = "";
+      input.style.backgroundColor = "";
+    });
+
+    if (name.length < 2 || name.length > 100) {
+      nameInput.style.border = "2px solid red";
+      valid = false;
+    }
+    if (email.indexOf("@") === -1 || email.indexOf(" ") !== -1 || email.toLowerCase().indexOf(".edu") === -1) {
+      emailInput.style.border = "2px solid red";
+      valid = false;
+    }
+    if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
+      passwordInput.style.border = "2px solid red";
+      valid = false;
+    }
+    if (passkey !== "CAMPUS-ROOT-2026") {
+      passkeyInput.style.border = "2px solid red";
+      valid = false;
+    }
+    if (!valid) {
+      alert("Please correct the highlighted administrator information.");
       return;
     }
 

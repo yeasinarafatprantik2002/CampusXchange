@@ -217,12 +217,43 @@ function handleCheckoutSubmit(e) {
   const payMethodSelect = document.getElementById("checkoutPaymentMethod");
   const notesInput = document.getElementById("checkoutNotes");
 
-  const buyerName = nameInput ? nameInput.value.trim() : "Emma Watson";
-  const studentId = studentIdInput ? studentIdInput.value.trim() : "STU-88214";
-  const buyerEmail = emailInput ? emailInput.value.trim() : "emma.watson@campus.edu";
+  const buyerName = nameInput ? nameInput.value.trim() : "";
+  const studentId = studentIdInput ? studentIdInput.value.trim() : "";
+  const buyerEmail = emailInput ? emailInput.value.trim() : "";
   const pickupLoc = locationSelect ? locationSelect.value : "Student Union Lobby";
   const payMethod = payMethodSelect ? payMethodSelect.value : "Cash on In-Person Handover";
   const notes = notesInput ? notesInput.value.trim() : "";
+  let valid = true;
+
+  [nameInput, studentIdInput, emailInput, notesInput].forEach(input => {
+    if (input) {
+      input.style.border = "";
+      input.style.backgroundColor = "";
+    }
+  });
+
+  if (buyerName.length < 2) {
+    nameInput.style.border = "2px solid red";
+    valid = false;
+  }
+  if (studentId.length < 4 || studentId.length > 30 || studentId.indexOf(" ") !== -1) {
+    studentIdInput.style.border = "2px solid red";
+    valid = false;
+  }
+  if (buyerEmail.indexOf("@") === -1 ||
+      buyerEmail.indexOf(" ") !== -1 ||
+      buyerEmail.toLowerCase().indexOf(".edu") === -1) {
+    emailInput.style.border = "2px solid red";
+    valid = false;
+  }
+  if (notes.length > 500) {
+    notesInput.style.border = "2px solid red";
+    valid = false;
+  }
+  if (!valid) {
+    alert("Please correct the highlighted checkout information.");
+    return;
+  }
 
   const orderId = `ORD-${Math.floor(10000 + Math.random() * 90000)}`;
   const orderDate = new Date().toISOString().split("T")[0];

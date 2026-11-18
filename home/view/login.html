@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Universal Login</title>
+  <link rel="stylesheet" href="../style/portal.css">
+</head>
+<body>
+  <header class="system-header">
+    <div class="main-nav">
+      <a href="../../index.html" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">campusXchange</span>
+          <div class="brand-subtitle">Student Marketplace &amp; Campus Exchange</div>
+        </div>
+      </a>
+
+      <div class="nav-right-actions">
+        <a href="../../index.html" class="btn-outline">← Back to Marketplace</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <section class="panel-section" style="max-width: 520px; margin: 60px auto;">
+      <span class="hero-tag">Universal Account Access</span>
+      <h1 class="panel-title" style="margin-top: 12px;">Login to CampusXchange</h1>
+      <p class="kpi-subtext">Use one account to access a buyer, seller, moderator, or admin portal.</p>
+      <br>
+
+      <form id="universalLoginForm">
+        <div class="filter-group">
+          <label for="loginEmail" class="filter-label">Campus Email</label>
+          <input type="text" id="loginEmail" class="input-control" placeholder="e.g. emma.watson@campus.edu">
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="loginPassword" class="filter-label">Password</label>
+          <input type="password" id="loginPassword" class="input-control" placeholder="Enter your password">
+        </div>
+        <br>
+
+        <div class="filter-group">
+          <label for="loginRole" class="filter-label">Login As</label>
+          <select id="loginRole" class="select-control">
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+            <option value="moderator">Moderator</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </div>
+        <br>
+
+        <button type="submit" class="btn-cyan" style="width: 100%;">
+          Login to Role Portal
+        </button>
+      </form>
+      <br>
+      <a href="register.html" class="btn-outline">Create a New Account</a>
+    </section>
+  </main>
+
+  <script src="../script/login.js"></script>
+</body>
+</html>

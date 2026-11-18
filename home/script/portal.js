@@ -254,7 +254,7 @@ function updateAuthUI() {
     if (signInOutBtn) {
       signInOutBtn.textContent = "Universal Login";
       signInOutBtn.onclick = () => {
-        window.location.href = "login.html";
+        window.location.href = "home/view/login.html";
       };
     }
   }
